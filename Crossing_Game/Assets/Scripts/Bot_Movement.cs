@@ -111,7 +111,7 @@ public class Bot_Movement : MonoBehaviour
         float travelDistance = speed * Time.deltaTime;
 
         //one vertical input allowed
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.W))
         {
             if (previous_vertical == 0 || previous_vertical == null)
             {
@@ -125,7 +125,7 @@ public class Bot_Movement : MonoBehaviour
                 time_vertical += Time.deltaTime;
             }
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(KeyCode.S))
         {
             if (previous_vertical == 1 || previous_vertical == null)
             {
@@ -140,7 +140,7 @@ public class Bot_Movement : MonoBehaviour
             }
         }
         //one horizontal input allowed
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
             if (previous_horizontal == 0 || previous_horizontal == null)
             {
@@ -154,7 +154,7 @@ public class Bot_Movement : MonoBehaviour
                 time_horizontal += Time.deltaTime;
             }
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.A))
         {
             if (previous_horizontal == 1 || previous_horizontal == null)
             {
