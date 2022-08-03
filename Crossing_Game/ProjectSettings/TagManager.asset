@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Beam
+  - Tractor_Beam
+  - Cargo
   layers:
   - Default
   - TransparentFX
