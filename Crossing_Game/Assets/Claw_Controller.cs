@@ -16,7 +16,7 @@ public class Claw_Controller : MonoBehaviour
     private Vector3 bc_starting_coords;
     private bool clamped = false;
 
-
+    GameObject contacted_cargo;
     private void Start()
     {
         contact_points = top_claw.GetComponentsInChildren<Contact_Point>().Concat(bottom_claw.GetComponentsInChildren<Contact_Point>()).ToArray();
@@ -41,13 +41,23 @@ public class Claw_Controller : MonoBehaviour
                 {
                     bottom_contacts++;
                 }
+                //if so, stop movement of object
+                if (top_contacts > 0 && bottom_contacts > 0)
+                {
+                    clamped = true;
+                    contacted_cargo = contact_point.contacted_object;
+                    contacted_cargo.transform.parent = transform;
+                    contacted_cargo.GetComponent<Rigidbody2D>().velocity = transform.parent.parent.GetComponent<Rigidbody2D>().velocity;
+                }
+                else if (contacted_cargo != null) 
+                {
+                    contacted_cargo.transform.parent = null;
+                }
             }
         }
-        //if so, stop movement of object
-        if (top_contacts > 0 && bottom_contacts > 0)
+        if (Input.GetKeyUp(KeyCode.Space) || clamped == false && contacted_cargo != false)
         {
-            clamped = true;
-            contact_points[0].contacted_object.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            contacted_cargo.transform.parent = null;  
         }
         if (clamped & Input.GetKey(KeyCode.Space))
         {
