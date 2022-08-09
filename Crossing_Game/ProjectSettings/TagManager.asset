@@ -7,6 +7,8 @@ TagManager:
   - Beam
   - Tractor_Beam
   - Cargo
+  - Visual_Cover
+  - Metal_Detector_Cover
   layers:
   - Default
   - TransparentFX
