@@ -55,10 +55,6 @@ public class Claw_Controller : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKeyUp(KeyCode.Space) || clamped == false && contacted_cargo != null && contacted_cargo != false && contacted_cargo.transform.parent)
-        {
-            contacted_cargo.transform.parent = null;  
-        }
         if (clamped & Input.GetKey(KeyCode.Space))
         {
             //reset clamp and reset claw
